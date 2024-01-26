@@ -1,4 +1,4 @@
-const SPACECHAR = '   ';
+const SPACECHAR = ' - ';
 const BLOCKCHAR = '[ ]';
 const VERWALL = 20;
 const HORWALL = 20;
