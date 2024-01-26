@@ -7,6 +7,7 @@ var square = { position: [1, 1], width: 2, height:2, blocks: [] };
 square.blocks.push(squareBlocks(square.position, square.width, square.height));
 
 
+
 function squareBlocks(square, width, height) {
   var blocks = [];
   console.log()
@@ -45,5 +46,13 @@ function nestedIncludes(arr, x, y) {
   return doesInclude;
 }
 
-console.log(draw(square.blocks.flat()));
+var mainBlocks = []
+mainBlocks.push(square.blocks);
+mainBlocks = mainBlocks.flat(2);
+
+
+//additional blocks if you want to add
+mainBlocks.push([1,3])
+
+console.log(draw(mainBlocks));
 //console.log(square.blocks)
