@@ -1,7 +1,7 @@
 const SPACECHAR = '   ';
 const BLOCKCHAR = '[ ]';
-const VERWALL = 1000;
-const HORWALL = 1000;
+const VERWALL = 20;
+const HORWALL = 20;
 
 var square = { position: [1, 1], width: 2, height:2, blocks: [] };
 square.blocks.push(squareBlocks(square.position, square.width, square.height));
