@@ -3,8 +3,7 @@ const BLOCKCHAR = '[ ]';
 const VERWALL = 20;
 const HORWALL = 20;
 
-var square = { position: [1, 1], width: 2, height:2, blocks: [] };
-square.blocks.push(squareBlocks(square.position, square.width, square.height));
+
 
 
 
@@ -46,13 +45,31 @@ function nestedIncludes(arr, x, y) {
   return doesInclude;
 }
 
-var mainBlocks = []
-mainBlocks.push(square.blocks);
-mainBlocks = mainBlocks.flat(2);
+var square = { position: [1, 1], width: 2, height:2, blocks: [] };
+var mainBlocks = [];
 
+var movementDirection = "right";
 
 //additional blocks if you want to add
-mainBlocks.push([1,3])
+setInterval(function() {
+  square.blocks.push(squareBlocks(square.position, square.width, square.height));
+  mainBlocks.push(square.blocks);
+  mainBlocks = mainBlocks.flat(2);
+  console.log(draw(mainBlocks));
+  mainBlocks = []
+  square.blocks = []
+  
+  if(movementDirection == "right"){
+    if(square.position[0] == VERWALL - square.width){
+      movementDirection = "left"
+    }
+    square.position[0] += 1;
+  }else{
+        if(square.position[0] == 1){
+      movementDirection = "right"
+    }
+    square.position[0] -= 1;
+  }
 
-console.log(draw(mainBlocks));
+},500)
 //console.log(square.blocks)
